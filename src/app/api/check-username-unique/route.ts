@@ -1,6 +1,6 @@
 import dbConnect from "@/src/lib/dbConnect";
 import UserModel from "@/src/model/User";
-import {success, z} from "zod";
+import {z} from "zod";
 import { usernameValidation } from "@/src/schemas/signUpSchema";
 
 const UsernameQuerySchema = z.object({
@@ -41,7 +41,7 @@ export async function GET(request: Request) {
              
             return Response.json({
                 success: true,
-                message: "Username is Unique.",
+                message: "Username is unique.",
             }, { status: 200 });
 
     } catch (error) {

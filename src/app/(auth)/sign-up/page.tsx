@@ -32,6 +32,7 @@ const Page = () => {
 
   const router = useRouter();
 
+  //zod implementation for form validation
   const form = useForm<z.infer<typeof signUpSchema>>({
     resolver: zodResolver(signUpSchema),
     defaultValues: {
@@ -110,15 +111,12 @@ const Page = () => {
                       }}
                     />
                   </FormControl>
-                  {isCheckingUsername && (
-                    <Loader2 className="ml-2 h-4 w-4 animate-spin" />
-                  )}
-                  {/* ✅ username message dikhao */}
-                  {!isCheckingUsername && usernameMessage && (
-                    <p className={`text-sm ${usernameMessage === "Username is available" ? "text-green-500" : "text-red-500"}`}>
-                      {usernameMessage}
+                  {isCheckingUsername &&
+                    <Loader2 className="animate-spin" />}
+                    <p className={`text-sm ${usernameMessage === "Username is unique." ? 'text-green-500' : 'text-red-500'}`}>
+                        test {usernameMessage}
                     </p>
-                  )}
+                  
                   <FormMessage />
                 </FormItem>
               )}
