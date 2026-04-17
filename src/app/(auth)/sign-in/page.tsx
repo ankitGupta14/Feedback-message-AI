@@ -53,7 +53,7 @@ const Page = () => {
         });
       }
 
-      if (result?.ok) {
+      if (result?.url) {
         toast.success("Success", {
           description: "Signed in successfully!",
         });
