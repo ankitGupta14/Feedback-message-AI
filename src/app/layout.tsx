@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
- 
+import "./globals.css";
 
-import Navbar from "@/components/Navbar";
+import { Toaster } from "@/components/ui/sonner"
+
+// ✅ import your provider
+import AuthProvider from "../context/AuthProvider"; // adjust path if needed
+// import Navbar from "@/components/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,12 +35,12 @@ export default function RootLayout({
     >
       
       <body className="min-h-full flex flex-col">
-        
+        <AuthProvider>
         {/* ✅ Wrap children here */}
-        <Navbar/>
+        {/* <Navbar/> */}
           {children}
-          
-               
+           </AuthProvider>
+                <Toaster /> 
       </body>
      
     </html>
