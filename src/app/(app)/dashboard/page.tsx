@@ -36,14 +36,15 @@ const fetchAccpectMessages = useCallback(async () => {
     setValue("accpectMessages", response.data.isAcceptingMessage)
 
   } catch (error) {
-    
+
     const axiosError = error as AxiosError<ApiResponse>
   }
 
 }, [setValue])
 
   return (
-    <div>dashboard</div>
+    <div>dashboard </div>
+    
   )
 }
 
