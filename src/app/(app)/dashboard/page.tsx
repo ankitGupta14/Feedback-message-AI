@@ -14,7 +14,7 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [isSwitchLoading, setIsSwitchLoading] = useState(false)
 
-  // ✅ Fix 1 — .toString() add kiya
+  
   const handleDeleteMessage = (messageId: string) => {
     setMessages(messages.filter(
       (message) => message._id?.toString() !== messageId
@@ -35,12 +35,12 @@ const Page = () => {
     try {
       const response = await axios.get<ApiResponse>("/api/accept-messages")
 
-      // ✅ Fix 2 — ?? false add kiya
+      
       setValue("accpectMessages", response.data.isAcceptingMessage ?? false)
 
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>
-      // ✅ Fix 3 — Sonner syntax
+      
       toast.error("Error", {
         description: axiosError.response?.data.message || "Error fetching user preference.",
       })
@@ -56,14 +56,14 @@ const Page = () => {
       const response = await axios.get<ApiResponse>("/api/get-messages")
       setMessages(response.data.messages || [])
       if (refresh) {
-        // ✅ Fix 3 — Sonner syntax
+        
         toast.success("Refreshed", {
           description: "Messages have been refreshed.",
         })
       }
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>
-      // ✅ Fix 3 — Sonner syntax
+      
       toast.error("Error", {
         description: axiosError.response?.data.message || "Failed to fetch messages.",
       })
@@ -74,7 +74,7 @@ const Page = () => {
   }, [setMessages, setIsLoading])
 
   useEffect(() => {
-    if (!session || !session.user) return  // ✅ !session.user fix kiya
+    if (!session || !session.user) return  
     fetchMessages()
     fetchAccpectMessages()
   }, [session, setValue, fetchAccpectMessages, fetchMessages])
@@ -85,7 +85,7 @@ const Page = () => {
         accpectMessages: !accpectMessages
       })
       setValue("accpectMessages", !accpectMessages)
-      // ✅ Fix 3 — Sonner syntax
+      
       toast.success(response.data.message, {
         description: "User preference updated successfully.",
       })
