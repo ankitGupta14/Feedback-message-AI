@@ -38,7 +38,7 @@ function MessagePage() {
     defaultValues: { content: "" },
   })
 
-  // ✅ Simple axios se AI suggestions fetch karo
+  // ✅ Simple axios se AI suggestions fetch kra ga 
   const fetchSuggestions = async () => {
     setIsSuggesting(true)
     try {
