@@ -7,10 +7,10 @@ import UserModel from "@/src/model/User";
 export const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
-      id: "Credentials",
+      id: "credentials",    // ✅ lowercase — sign-in page se match karta hai
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "text" },
+        identifier: { label: "Email or Username", type: "text" },  // ✅ identifier
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: any): Promise<any> {
@@ -22,23 +22,24 @@ export const authOptions: NextAuthOptions = {
               { username: credentials.identifier },
             ],
           });
+
           if (!user) {
-            throw new Error("Invalid credentials");
+            throw new Error("No user found with this email or username.");
           }
 
           if (!user.isVerified) {
-            throw new Error(
-              "Please verify your email address before logging in."
-            );
+            throw new Error("Please verify your email before logging in.");
           }
+
           const isPasswordCorrect = await bcrypt.compare(
             credentials.password,
             user.password
           );
+
           if (isPasswordCorrect) {
             return user;
           } else {
-            throw new Error("Incorrect Password");
+            throw new Error("Incorrect password.");
           }
         } catch (err: any) {
           throw new Error(err.message);
@@ -46,6 +47,7 @@ export const authOptions: NextAuthOptions = {
       },
     }),
   ],
+
   callbacks: {
     async session({ session, token }) {
       if (token) {
@@ -58,7 +60,7 @@ export const authOptions: NextAuthOptions = {
     },
     async jwt({ token, user }) {
       if (user) {
-        token.id = user._id?.toString();
+        token._id = user._id?.toString();  // ✅ token.id → token._id
         token.isVerified = user.isVerified;
         token.isAccpectMessage = user.isAccpectMessage;
         token.username = user.username;
@@ -66,11 +68,14 @@ export const authOptions: NextAuthOptions = {
       return token;
     },
   },
+
   pages: {
     signIn: "/sign-in",
   },
+
   session: {
     strategy: "jwt",
   },
+
   secret: process.env.NEXTAUTH_SECRET,
 };
