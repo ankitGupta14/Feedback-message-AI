@@ -3,14 +3,14 @@ import VerificationEmail from "@/emails/VerificationEmail";
 import { ApiResponse } from "@/src/types/ApiResponse";
 
 export async function sendVerificationEmail(
-  email: string,    // ← pehle email
-  username: string, // ← phir username
+  email: string,    
+  username: string, 
   verifyCode: string
 ): Promise<ApiResponse> {
   try {
     await resend.emails.send({
       from: 'onboarding@resend.dev',
-      to: "datasci619@gmail.com",  // ✅ Variable — string nahi
+      to: email,  
       subject: 'Feedback Mystery | Verification Code',
       react: VerificationEmail({ username, otp: verifyCode }),
     });
