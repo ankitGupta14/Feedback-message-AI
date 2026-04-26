@@ -1,7 +1,7 @@
 'use client'
 import { Message, User } from "@/src/model/User"
 import { AccpectMessageSchema } from "@/src/schemas/accpectMessageSchema"
-import { ApiResponse } from "@/src/types/apiResponse"
+import { ApiResponse } from "@/src/types/ApiResponse"
 import { zodResolver } from "@hookform/resolvers/zod"
 import axios, { AxiosError } from "axios"
 import { useSession } from "next-auth/react"

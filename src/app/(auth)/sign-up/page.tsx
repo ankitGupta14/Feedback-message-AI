@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { signUpSchema } from "@/src/schemas/signUpSchema";
 import axios, { AxiosError } from "axios";
-import { ApiResponse } from "@/src/types/apiResponse";
+import { ApiResponse } from "@/src/types/ApiResponse";
 import {
   Form,
   FormControl,

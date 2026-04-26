@@ -7,7 +7,7 @@ import { verifySchema } from '@/src/schemas/verfiySchema';
 import * as z from "zod";
 import { toast } from "sonner";
 import axios, { AxiosError } from 'axios';
-import { ApiResponse } from '@/src/types/apiResponse';
+import { ApiResponse } from '@/src/types/ApiResponse';
 import {
   Form,
   FormControl,
