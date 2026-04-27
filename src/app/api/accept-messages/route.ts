@@ -7,6 +7,8 @@ import { User } from "next-auth";
 export async function POST(request: Request) {
   await dbConnect();
 
+// accpects the message for the user he accpect or not 
+
   const session = await getServerSession(authOptions);
   const user: User = session?.user;
   if (!session || !session.user) {
@@ -20,7 +22,7 @@ export async function POST(request: Request) {
   }
 
   const userId = user._id;
-  const { accpectMessages } = await request.json();
+  const { accpectMessages } = await request.json(); 
 
   try {
    const updatedUser = await UserModel.findByIdAndUpdate(
