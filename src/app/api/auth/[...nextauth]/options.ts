@@ -10,7 +10,7 @@ export const authOptions: NextAuthOptions = {
       id: "credentials",    // ✅ lowercase — sign-in page se match karta hai
       name: "Credentials",
       credentials: {
-        identifier: { label: "Email or Username", type: "text" },  // ✅ identifier
+        identifier: { label: "Email or Username", type: "text" },  // ✅ identifier the user and pass
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials: any): Promise<any> {
