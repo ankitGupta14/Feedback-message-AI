@@ -31,7 +31,7 @@ export async function GET(request: Request) {
 
     if (!user || user.length === 0) {
       return Response.json(
-        { success: true, messages: [] },  // ✅ 404 nahi — empty array bhejo
+        { success: true, messages: [] },  //  empty array send kr rha hai 
         { status: 200 }
       );
     }
