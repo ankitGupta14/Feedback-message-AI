@@ -50,7 +50,7 @@ export async function POST(request: Request) {
       return Response.json(
         {
           success: false,
-          message: "Invalid verification code.",
+          message: "Invalid verification code pls try again later.",
         },
         { status: 400 }
       );
