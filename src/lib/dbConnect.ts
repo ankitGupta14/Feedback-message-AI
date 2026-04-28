@@ -1,5 +1,7 @@
 import mongoose from "mongoose";
+ 
 
+//  mongodb connect the database
 type ConnecttionObject = {
     isConnected?: number;
 };
