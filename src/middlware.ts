@@ -6,6 +6,8 @@ export async function middleware(request: NextRequest) {
   const token = await getToken({ req: request });
   const url = request.nextUrl;
 
+   //  user ke login token ke hisaab se redirect karta hai.
+   
   if (
     token &&
     (url.pathname.startsWith("/sign-in") ||
