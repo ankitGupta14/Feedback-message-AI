@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 
-//-------------------------------Message Schema and Model-------------------------------
+//-------------------------------Message Schema and Model to check the user -------------------------------
 export interface Message extends Document {
   content: string;
   createdAt: Date;
@@ -32,28 +32,28 @@ export interface User extends Document {
 const UserSchema: Schema<User> = new Schema({
   username: {
     type: String,
-    required: [true, "Username is required"],
+    required: [true, "Username is required."],
     unique: true,
     trim: true,
   },
   email: {
     type: String,
-    required: [true, "Email is required"],
+    required: [true, "Email is required."],
     unique: true,
     match: [/\S+@\S+\.\S+/, "Please use a valid email address."],
     trim: true,
   },
   password: {
     type: String,
-    required: [true, "Password is required"],
+    required: [true, "Password is required."],
   },
   verfiyCode: {
     type: String,
-    required: [true, "verfiycode is required"],
+    required: [true, "verfiycode is required."],
   },
   verfiyCodeExpire: {
     type: Date,
-    required: [true, "verfiyCodeExpire is required"],
+    required: [true, "verfiyCodeExpire is required."],
   },
   isVerified: {
     type: Boolean,
