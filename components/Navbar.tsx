@@ -9,7 +9,7 @@ import { MessageCircle, LogOut, LayoutDashboard } from 'lucide-react'
 function Navbar() {
   const { data: session } = useSession()
   const user: User = session?.user as User
-
+  // chnage the ui
   return (
     <nav className="sticky top-0 z-50 border-b border-white/10 bg-gray-900/80 backdrop-blur-md shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
