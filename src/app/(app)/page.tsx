@@ -16,7 +16,7 @@ import { ArrowRight, MessageCircle, Lock, Zap } from "lucide-react"
 function Home() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white">
-
+    // front page 
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-center px-4 py-24">
         
