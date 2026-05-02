@@ -37,7 +37,7 @@ function Home() {
         <p className="text-gray-400 text-lg md:text-xl max-w-2xl text-center mb-10 leading-relaxed">
           Share your unique link and receive honest, unfiltered messages from anyone — completely anonymous, completely safe.
         </p>
-
+           
         {/* CTA */}
         <div className="flex flex-col sm:flex-row gap-4">
           <Link href="/sign-up">
@@ -51,7 +51,7 @@ function Home() {
             </Button>
           </Link>
         </div>
-
+            // fix all the function 
         {/* Stats */}
         <div className="mt-16 flex flex-wrap justify-center gap-12 text-center">
           {[
